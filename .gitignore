@@ -1,0 +1,15 @@
+.gradle/
+.idea/
+.sass-cache/
+.log/
+bower_components/
+build/
+node_modules/
+target/
+*.iml
+classes/*
+src/main/resources/static/vendor/
+src/main/resources/static/js/src/templates.js
+npm-debug.log
+*.ipr
+*.iws

@@ -62,7 +62,7 @@ task wrapper(type: Wrapper) {
 
 jacocoTestReport {
     doFirst {
-        classDirectories = fileTree(dir: "${buildDir}/classes/main/").exclude("org/yood/springboot/mybatis/entity/**")
+        classDirectories = fileTree(dir: "${buildDir}/classes/main/")
     }
     reports {
         xml.enabled false

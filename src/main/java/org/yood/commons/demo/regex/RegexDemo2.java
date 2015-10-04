@@ -1,4 +1,4 @@
-package org.yood.commons.util.regex;
+package org.yood.commons.demo.regex;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

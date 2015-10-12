@@ -11,7 +11,6 @@ import java.security.spec.RSAPublicKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 
 public class RSAUtils {
-
     public static final String RSA_ECB_PKCS1_PADDING = "RSA/ECB/PKCS1Padding";
 
     public static final int KEY_SIZE_2048 = 2048;
@@ -53,8 +52,7 @@ public class RSAUtils {
             RSAPublicKeySpec keySpec = new RSAPublicKeySpec(modulus, exponent);
             return keyFactory.generatePublic(keySpec);
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new IllegalArgumentException("Failed to get public key!", e);
         }
     }
 
@@ -79,8 +77,7 @@ public class RSAUtils {
             RSAPrivateKeySpec keySpec = new RSAPrivateKeySpec(modulus, exponent);
             return keyFactory.generatePrivate(keySpec);
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+            throw new IllegalArgumentException("Failed to get private key!", e);
         }
     }
 
@@ -132,4 +129,5 @@ public class RSAUtils {
         return decrypt(Base64.decodeBase64(data), getPrivateKey(base64PrivateKey));
     }
 }
+
 

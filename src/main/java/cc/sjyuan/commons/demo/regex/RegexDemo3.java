@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegexTest2 {
+public class RegexDemo3 {
 
 	public static void main(String[] args) throws IOException {
 

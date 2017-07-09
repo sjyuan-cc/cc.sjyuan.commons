@@ -4,13 +4,9 @@ import java.net.URLEncoder;
 
 public final class EncodingUtils {
 
-	/** encoding:UTF-8 */
 	public static final String UTF_8 = "UTF-8";
-	/** encoding:GBK */
 	public static final String GBK = "GBK";
-	/** encoding:ISO-8859-1 */
 	public static final String ISO_8859_1 = "ISO-8859-1";
-	/** encoding:GB2312 */
 	public static final String GB_2312 = "GB2312";
 
 	private EncodingUtils() {

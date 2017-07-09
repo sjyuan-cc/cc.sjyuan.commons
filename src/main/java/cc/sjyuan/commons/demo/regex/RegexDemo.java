@@ -2,7 +2,7 @@ package cc.sjyuan.commons.demo.regex;
 
 import java.util.TreeSet;
 
-public class RegexTest {
+public class RegexDemo {
 
     public static void main(String[] args) {
         test_1();

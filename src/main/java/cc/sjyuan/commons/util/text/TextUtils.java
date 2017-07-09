@@ -2,31 +2,12 @@ package cc.sjyuan.commons.util.text;
 import java.io.UnsupportedEncodingException;
 import java.util.UUID;
 
-/**
- * Text Util
- *
- * @author Ysjian
- *
- */
 public class TextUtils {
 
-	/**
-	 * Judge whether the text is null or empty
-	 *
-	 * @param arg0
-	 * @return
-	 */
 	public static boolean isEmpty(String arg0) {
 		return null == arg0 || "".equals(arg0);
 	}
 
-	/**
-	 * Compare two string
-	 *
-	 * @param arg0
-	 * @param arg1
-	 * @return
-	 */
 	public static boolean compare(String arg0, String arg1) {
 		if (null == arg0 && null == arg1) {
 			return true;
@@ -39,13 +20,6 @@ public class TextUtils {
 		return true;
 	}
 
-	/**
-	 * Connect objects as string
-	 *
-	 * @param args
-	 *            the object to be connected
-	 * @return string after connected
-	 */
 	public static String connect(Object... args) {
 		StringBuilder result = new StringBuilder();
 		if (null != args && args.length > 0) {
@@ -56,21 +30,10 @@ public class TextUtils {
 		return "";
 	}
 
-	/**
-	 * Make UUID of style like as 3fd556fdert89dfegy9f6d5g65jk23h5
-	 *
-	 * @return
-	 */
 	public static String makeUuid() {
 		return UUID.randomUUID().toString().replace("-", "");
 	}
 
-	/**
-	 * Generate the number suffix
-	 *
-	 * @param no
-	 * @return
-	 */
 	public static String makeNoPostfix(int no) {
 		String result = null;
 		if (no < 1) {
@@ -81,15 +44,6 @@ public class TextUtils {
 		return result;
 	}
 
-	/**
-	 * Split top size of a string
-	 *
-	 * @param conent
-	 *            内容
-	 * @param maxDisplaySize
-	 *            指定最大显示
-	 * @return
-	 */
 	public static String makeShortContent(String conent, int maxDisplaySize) {
 		if (null == conent || "".equals(conent)) {
 			return conent;

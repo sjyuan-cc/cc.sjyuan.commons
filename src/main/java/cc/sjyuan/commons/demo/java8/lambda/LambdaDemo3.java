@@ -1,4 +1,4 @@
-package cc.sjyuan.commons.java8.lambda;
+package cc.sjyuan.commons.demo.java8.lambda;
 
 import java.util.Arrays;
 import java.util.Collections;

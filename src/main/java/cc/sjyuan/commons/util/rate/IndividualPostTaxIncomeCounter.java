@@ -9,7 +9,7 @@ public class IndividualPostTaxIncomeCounter {
     private static final double RATE_55000_80000 = .35;
     private static final double RATE_ABOVE_80000 = .40;
 
-    private static final double THRESHOULD = 3500.0;
+    private static final double THRESHOLD = 3500.0;
 
     private final double preTaxIncome;
     private final double socialSecurityAndProvidentFound;
@@ -43,7 +43,7 @@ public class IndividualPostTaxIncomeCounter {
     }
 
     public double postTaxIncome() {
-        double taxIncome = preTaxIncome - socialSecurityAndProvidentFound - THRESHOULD;
+        double taxIncome = preTaxIncome - socialSecurityAndProvidentFound - THRESHOLD;
         double tax;
         if (taxIncome <= 0) {
             tax = 0;

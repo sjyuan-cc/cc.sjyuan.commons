@@ -9,11 +9,10 @@ public class RegexDemo2 {
      * @param args
      */
     public static void main(String[] args) {
-
         functionDemo_4();
         functionDemo_3();
         functionDemo_2();
-//        functionDemo_1();
+        functionDemo_1();
     }
 
     public static void functionDemo_4() {

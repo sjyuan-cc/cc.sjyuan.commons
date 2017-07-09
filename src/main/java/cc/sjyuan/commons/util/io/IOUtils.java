@@ -1,7 +1,5 @@
 package cc.sjyuan.commons.util.io;
 
-import com.alibaba.fastjson.JSONObject;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -100,22 +98,6 @@ public class IOUtils {
 		} catch (Exception e) {
 			return null;
 		}
-	}
-
-
-	public static JSONObject parseHttpInputStrem(InputStream is)
-			throws IOException {
-
-		BufferedReader br = new BufferedReader(new InputStreamReader(is,
-				ENCODING_UTF_8));
-		StringBuffer result = new StringBuffer();
-		String value = null;
-		while ((value = br.readLine()) != null) {
-			result.append(value);
-			result.append("\n");
-		}
-		JSONObject jsonObject = JSONObject.parseObject(result.toString());
-		return jsonObject;
 	}
 
 

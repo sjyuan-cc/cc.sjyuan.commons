@@ -12,7 +12,7 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class FileOperateUtils {
+public class FileUtils {
 
 	private static final String REALNAME = "realName";
 	private static final String STORENAME = "storeName";
@@ -23,14 +23,6 @@ public class FileOperateUtils {
 	
 	private static final String UPLOADDIR = "upload/";
 
-	/**
-	 * 将上传的文件进行重命名
-	 * 
-	 * @author geloin
-	 * @date 2012-3-29 下午3:39:53
-	 * @param name
-	 * @return
-	 */
 	private static String rename(String name) {
 
 		Long now = Long.parseLong(new SimpleDateFormat("yyyyMMddHHmmsssss")
@@ -45,14 +37,6 @@ public class FileOperateUtils {
 		return fileName;
 	}
 
-	/**
-	 * 压缩后的文件名
-	 * 
-	 * @author geloin
-	 * @date 2012-3-29 下午6:21:32
-	 * @param name
-	 * @return
-	 */
 	private static String zipName(String name) {
 		String prefix = "";
 		if (name.indexOf("") != -1) {
@@ -63,17 +47,6 @@ public class FileOperateUtils {
 		return prefix + ".zip";
 	}
 
-	/**
-	 * 上传文件
-	 * 
-	 * @author geloin
-	 * @date 2012-5-5 下午12:25:47
-	 * @param request
-	 * @param params
-	 * @param values
-	 * @return
-	 * @throws Exception
-	 */
 	public static List<Map<String, Object>> upload(HttpServletRequest request,
 			String[] params, Map<String, Object[]> values) throws Exception {
 
@@ -84,14 +57,14 @@ public class FileOperateUtils {
 
 		String uploadDir = request.getSession().getServletContext()
 				.getRealPath("/")
-				+ FileOperateUtils.UPLOADDIR;
+				+ FileUtils.UPLOADDIR;
 		File file = new File(uploadDir);
 
 		if (!file.exists()) {
 			file.mkdir();
 		}
 
-		String fileName = null;
+		String fileName;
 		int i = 0;
 		for (Iterator<Map.Entry<String, MultipartFile>> it = fileMap.entrySet()
 				.iterator(); it.hasNext(); i++) {
@@ -106,7 +79,6 @@ public class FileOperateUtils {
 			String noZipName = uploadDir + storeName;
 			String zipName = zipName(noZipName);
 
-			// 上传成为压缩文件
 			ZipOutputStream outputStream = new ZipOutputStream(
 					new BufferedOutputStream(new FileOutputStream(zipName)));
 			outputStream.putNextEntry(new ZipEntry(fileName));
@@ -115,7 +87,7 @@ public class FileOperateUtils {
 			FileCopyUtils.copy(mFile.getInputStream(), outputStream);
 
 			Map<String, Object> map = new HashMap<String, Object>();
-			// 固定参数值对
+
 			map.put(REALNAME, zipName(fileName));
 			map.put(STORENAME, zipName(storeName));
 			map.put(SIZE, new File(zipName).length());
@@ -123,7 +95,6 @@ public class FileOperateUtils {
 			map.put(CONTENTTYPE, "application/octet-stream");
 			map.put(CREATETIME, new Date());
 
-			// 自定义参数值对
 			for (String param : params) {
 				map.put(param, values.get(param)[i]);
 			}
@@ -132,18 +103,6 @@ public class FileOperateUtils {
 		return result;
 	}
 
-	/**
-	 * 下载
-	 * 
-	 * @author geloin
-	 * @date 2012-5-5 下午12:25:39
-	 * @param request
-	 * @param response
-	 * @param storeName
-	 * @param contentType
-	 * @param realName
-	 * @throws Exception
-	 */
 	public static void download(HttpServletRequest request,
 			HttpServletResponse response, String storeName, String contentType,
 			String realName) throws Exception {
@@ -153,7 +112,7 @@ public class FileOperateUtils {
 		BufferedOutputStream bos = null;
 		String ctxPath = request.getSession().getServletContext()
 				.getRealPath("/")
-				+ FileOperateUtils.UPLOADDIR;
+				+ FileUtils.UPLOADDIR;
 		String downLoadPath = ctxPath + storeName;
 		
 		long fileLength = new File(downLoadPath).length();

@@ -1,4 +1,4 @@
-package cc.sjyuan.commons.java8.stream;
+package cc.sjyuan.commons.demo.java8.stream;
 
 public class Person {
 

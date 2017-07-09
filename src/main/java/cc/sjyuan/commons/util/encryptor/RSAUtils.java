@@ -11,12 +11,14 @@ import java.security.spec.RSAPublicKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 
 public class RSAUtils {
+
     public static final String RSA_ECB_PKCS1_PADDING = "RSA/ECB/PKCS1Padding";
 
     public static final int KEY_SIZE_2048 = 2048;
     public static final int KEY_SIZE_1024 = 1024;
 
     private RSAUtils() {
+        throw new IllegalStateException();
     }
 
     private static final String ALGORITHM = "RSA";

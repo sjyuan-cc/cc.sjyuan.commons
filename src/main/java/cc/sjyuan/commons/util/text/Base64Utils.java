@@ -85,7 +85,6 @@ public class Base64Utils {
 	 * Decodes the given Base64Utils encoded String to a new byte array. The byte
 	 * array holding the decoded data is returned.
 	 */
-
 	public static byte[] decode(String s) {
 
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
